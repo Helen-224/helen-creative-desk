@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import gsap from 'gsap';
 import { Html } from '@react-three/drei';
+import portfolio from '../../../../data/portfolio';
 
 export default function AboutMe({ visible, infoPagesVisited }) {
   const [htmlElement, setHtmlElement] = useState<HTMLDivElement | null>(null);
@@ -59,36 +60,10 @@ export default function AboutMe({ visible, infoPagesVisited }) {
       <div className="mt-5 pt-5 titilium-web">
         <div className="container-fluid mt-5 pt-5 text-white">
           <div className="d-flex flex-column mt-5 align-items-center">
-            <div className="d-flex col-sm-4 justify-content-center">
-              <div className="mt-3 pt-3">
-                <img
-                  // src="https://via.placeholder.com/400x400"
-                  src="/images/arthur-panazolo.jpeg"
-                  alt="client-image"
-                  className="img-fluid rounded-circle rounded-image"
-                ></img>
-              </div>
-            </div>
             <div className="d-flex col-sm-6 flex-column align-content-between client-info-col mt-5">
-              <div className="">
-                <p className="lead" style={{ textAlign: 'justify' }}>
-                  Hello, My name is{' '}
-                  <strong style={{ color: '#ffff01' }}>Arthur Panazolo.</strong>{' '}
-                  I am a Full Stack Web Developer passionate about creating
-                  fast, responsive and visually appealing web applications.
-                </p>
-                <p className="lead" style={{ textAlign: 'justify' }}>
-                  With years of experience in the industry, I enjoy the
-                  challenge of turning ideas into functional, beautiful
-                  websites. I focus on practical solutions that meet real user
-                  needs.
-                </p>
-                <p className="lead" style={{ textAlign: 'justify' }}>
-                  Check out the{' '}
-                  <strong style={{ color: '#ffff01' }}>Skills</strong> section
-                  to see what I can help you with.
-                </p>
-              </div>
+              <h2 className="mb-4" style={{ color: '#ffff01' }}>ABOUT HELEN</h2>
+              {portfolio.about.map((paragraph) => <p className="lead" style={{ textAlign: 'justify' }} key={paragraph}>{paragraph}</p>)}
+              <p className="lead"><strong style={{ color: '#ffff01' }}>{portfolio.identity.tagline}</strong></p>
             </div>
           </div>
         </div>

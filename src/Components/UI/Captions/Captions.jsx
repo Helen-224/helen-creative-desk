@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
 import { Billboard, Text } from '@react-three/drei';
 import gsap from 'gsap';
 
@@ -25,36 +24,6 @@ function ExternalLinkCaption({
     }
   }, [isOpen, isPoweredOn, isFinishedBooting]);
 
-  // * HELPER METHODS
-  const openWindow = () => {
-    const link =
-      loadedPage === 'github'
-        ? 'https://github.com/nothingnothings'
-        : 'https://linkedin.com/in/arthur-dalla-corte-panazolo';
-
-    if ((isOpen, isPoweredOn, isFinishedBooting)) {
-      window.open(link, '_blank');
-    }
-  };
-
-  const pointerOver = () => {
-    if ((isOpen, isPoweredOn, isFinishedBooting)) {
-      textRef2.current.material = new THREE.MeshBasicMaterial({
-        color: '#ffffff',
-        toneMapped: false,
-      });
-    }
-  };
-
-  const pointerLeave = () => {
-    if ((isOpen, isPoweredOn, isFinishedBooting)) {
-      textRef2.current.material = new THREE.MeshBasicMaterial({
-        color: '#ffff01',
-        toneMapped: false,
-      });
-    }
-  };
-
   return (
     <Billboard ref={billBoardRef}>
       <Text
@@ -63,7 +32,7 @@ function ExternalLinkCaption({
         scale={0.24}
         ref={textRef1}
       >
-        To view this profile in another window,
+        To explore Helen's work,
         <meshBasicMaterial
           attach="material"
           color="rgba(0, 25, 51)"
@@ -77,11 +46,8 @@ function ExternalLinkCaption({
           position={[1.94, 2, 0]}
           scale={0.24}
           ref={textRef2}
-          onClick={openWindow}
-          onPointerOver={pointerOver}
-          onPointerLeave={pointerLeave}
         >
-          click here.
+          use the controls below.
           <meshBasicMaterial
             attach="material"
             color="#ffff01"
@@ -119,7 +85,7 @@ function OpenNotebookCaption({ isNewVisit, isOpen, showCaption, hideCaption }) {
         scale={0.24}
         ref={textRef1}
       >
-        To take a look at my profile,
+        To enter Helen Creative Desk,
         <meshBasicMaterial
           attach="material"
           color="rgba(0, 25, 51)"

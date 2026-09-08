@@ -69,7 +69,7 @@ function PowerOnButton({
     gsap.to(closeButtonRef.current, {
       opacity: 1,
       duration: 0.5,
-      delay: 9,
+      delay: 3.2,
       ease: 'power1.inOut',
       onStart: () => {
         closeButtonRef.current.style.display = 'block';
@@ -81,7 +81,7 @@ function PowerOnButton({
 
     // Hide 'Boot Screen'
     gsap.to(linuxBootScreenHtmlRef.current, {
-      delay: 7.25,
+      delay: 2.25,
       duration: 0,
       display: 'none',
       onComplete: () => {
@@ -94,7 +94,7 @@ function PowerOnButton({
     if (loadedPage === 'linkedIn') {
       gsap.to(linkedInHtmlRef.current, {
         opacity: 1,
-        delay: 8,
+        delay: 2.55,
         onStart: () => {
           githubHtmlRef.current.style.display = 'none';
           linkedInHtmlRef.current.style.pointerEvents = 'default';
@@ -109,7 +109,7 @@ function PowerOnButton({
     if (loadedPage === 'github') {
       gsap.to(githubHtmlRef.current, {
         opacity: 1,
-        delay: 8,
+        delay: 2.55,
         onStart: () => {
           linkedInHtmlRef.current.style.display = 'none';
           screenLightOn(lightRef);
@@ -120,7 +120,7 @@ function PowerOnButton({
     }
 
     gsap.to(powerOffButtonRef.current, {
-      delay: 13,
+      delay: 4,
       duration: 0,
       onComplete: () => {
         powerOffButtonRef.current.style.pointerEvents = 'auto';
@@ -128,7 +128,7 @@ function PowerOnButton({
     });
 
     gsap.to(closeButtonRef.current, {
-      delay: 13,
+      delay: 4,
       duration: 0,
       onComplete: () => {
         closeButtonRef.current.style.pointerEvents = 'auto';

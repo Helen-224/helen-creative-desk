@@ -1,114 +1,17 @@
 import { Html } from '@react-three/drei';
-import { useEffect, useRef } from 'react';
+import { useState } from 'react';
+import portfolio from '../../../data/portfolio';
 
-function LinuxBootScreen({
-  refName,
-  distanceFactor,
-  htmlPosition,
-  htmlRotation,
-}) {
-  return (
-    <Html
-      transform
-      wrapperClass="bootScreen"
-      distanceFactor={distanceFactor}
-      position={htmlPosition}
-      rotation={htmlRotation}
-      rotation-x={-0.256}
-      ref={refName}
-    >
-      <img src="./images/boot_sequence.gif"></img>
-    </Html>
-  );
+function Boot({ refName, distanceFactor, htmlPosition, htmlRotation }) {
+  return <Html transform wrapperClass="bootScreen" distanceFactor={distanceFactor} position={htmlPosition} rotation={htmlRotation} rotation-x={-0.256} ref={refName}><img src="./images/boot_sequence.gif" alt="Helen Creative Desk is initializing" /></Html>;
 }
-
-function LinkedInScreen({
-  refName,
-  distanceFactor,
-  htmlPosition,
-  htmlRotation,
-}) {
-  return (
-    <Html
-      transform
-      wrapperClass="linkedInScreen"
-      distanceFactor={distanceFactor}
-      position={htmlPosition}
-      rotation={htmlRotation}
-      rotation-x={-0.256}
-      ref={refName}
-      style={{
-        opacity: 0,
-        display: 'none',
-      }}
-    >
-      <div className="linkedInScreen">
-        <img src="./images/linkedin-printscreen.png"></img>
-      </div>
-    </Html>
-  );
-}
-
-function GitHubScreen({ refName, distanceFactor, htmlPosition, htmlRotation }) {
-  return (
-    <Html
-      transform
-      wrapperClass="githubHtmlScreen"
-      distanceFactor={distanceFactor}
-      position={htmlPosition}
-      rotation={htmlRotation}
-      rotation-x={-0.256}
-      ref={refName}
-      style={{
-        opacity: 0,
-        cursor: 'default',
-      }}
-    >
-      <div className="githubScrollbarHider">
-        <iframe
-          id="github-frame"
-          title="GitHub"
-          style={{ pointerEvents: 'none' }}
-          src="https://portfolio-remote.vercel.app/api/github-proxy"
-        />
-      </div>
-    </Html>
-  );
-}
-
-export default function Screens({
-  isOpen,
-  isPoweredOn,
-  isFinishedBooting,
-  bootScreenRef,
-  linkedInScreenRef,
-  gitHubScreenRef,
-  htmlPosition,
-  htmlRotation,
-  distanceFactor,
-}) {
-  return (
-    <>
-      {isOpen && isPoweredOn && !isFinishedBooting && (
-        <LinuxBootScreen
-          refName={bootScreenRef}
-          distanceFactor={distanceFactor}
-          htmlPosition={htmlPosition}
-          htmlRotation={htmlRotation}
-        />
-      )}
-      <LinkedInScreen
-        refName={linkedInScreenRef}
-        distanceFactor={distanceFactor}
-        htmlPosition={htmlPosition}
-        htmlRotation={htmlRotation}
-      />
-      <GitHubScreen
-        refName={gitHubScreenRef}
-        distanceFactor={distanceFactor}
-        htmlPosition={htmlPosition}
-        htmlRotation={htmlRotation}
-      />
-    </>
-  );
-}
+function Back({ navigate }) { return <button className="desk-back" type="button" onClick={() => navigate('desk')}>← 返回工作台</button>; }
+function Welcome({ navigate }) { return <section className="workstation welcome-cover"><div><p className="ws-system">HELEN CREATIVE DESK / SYSTEM READY</p><p className="ws-name">{portfolio.identity.nameZh} / {portfolio.identity.nameEn.toUpperCase()}</p></div><div className="welcome-main"><p className="ws-tagline">{portfolio.identity.taglineZh}</p><h1>{portfolio.identity.statementZh}</h1><p className="ws-note">{portfolio.identity.personalNoteZh}</p><p className="ws-english">AI PRODUCT CREATOR · I TURN IDEAS INTO PRODUCTS.</p></div><button className="enter-desk" type="button" onClick={() => navigate('desk')}>进入工作台 <span aria-hidden="true">→</span></button></section>; }
+function Desk({ navigate }) { return <section className="workstation desk-home"><header><p className="ws-system">01 / 04 · INDEX</p><p>HELEN CREATIVE DESK</p></header><div className="desk-directory">{portfolio.navigation.map((item) => <button type="button" key={item.label} onClick={() => navigate(item.page)}><span>{item.number}</span><div><b>{item.label}</b><strong>{item.title}</strong><small>{item.detail}</small></div><i aria-hidden="true">↗</i></button>)}</div></section>; }
+function LinkOrStatus({ project }) { const url = project.caseStudyUrl || project.projectUrl; return url ? <a className="project-link" href={url} target="_blank" rel="noopener noreferrer">{project.featured ? '查看完整案例' : '查看项目'} ↗</a> : <span className="project-status">{project.status}</span>; }
+function Projects({ navigate }) { return <section className="workstation scroll-view"><Back navigate={navigate} /><header className="page-heading"><p className="ws-system">PROJECT INDEX</p><h1>项目作品</h1><span>Selected Work</span></header><div className="project-stack">{portfolio.projects.map((project) => <article className={project.featured ? 'project-featured' : 'project-secondary'} key={project.name}><p className="ws-system">{project.label}</p><div className="project-preview" aria-label={`${project.name} 项目视觉预览占位`}>PROJECT PREVIEW</div><h2>{project.name}</h2><h3>{project.englishName}</h3><p className="project-type">{project.type}</p><p className="project-description">{project.description}</p><div className="project-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><LinkOrStatus project={project} /></article>)}</div></section>; }
+function AiLab({ navigate }) { return <section className="workstation"><Back navigate={navigate} /><header className="page-heading"><p className="ws-system">AI LAB</p><h1>AI 实验室</h1></header><div className="lab-directory">{portfolio.aiLab.categories.map(([number, english, chinese]) => <div key={english}><span>{number}</span><b>{english}</b><strong>{chinese}</strong><small>素材即将接入</small></div>)}</div></section>; }
+function About({ navigate }) { return <section className="workstation scroll-view"><Back navigate={navigate} /><header className="page-heading"><p className="ws-system">ABOUT</p><h1>关于我</h1></header><div className="about-copy">{portfolio.about.map((text) => <p key={text}>{text}</p>)}</div><div className="about-facts">{portfolio.experience.map(([label, value]) => <div key={label}><span>{label}</span><b>{value}</b></div>)}</div><p className="project-status">简历即将接入</p></section>; }
+function Contact({ navigate }) { return <section className="workstation"><Back navigate={navigate} /><header className="page-heading"><p className="ws-system">CONTACT</p><h1>联系我</h1></header><div className="contact-copy"><p>欢迎聊聊产品、AI，<br />或者任何有意思的想法。</p><span>{portfolio.contact.status}</span></div></section>; }
+function Workstation({ refName, distanceFactor, htmlPosition, htmlRotation }) { const [page, setPage] = useState('welcome'); const navigate = (next) => setPage(next); return <Html transform wrapperClass="productOsScreen" distanceFactor={distanceFactor} position={htmlPosition} rotation={htmlRotation} rotation-x={-0.256} ref={refName} style={{ opacity: 0, display: 'none' }}><main className="workstation-shell">{page === 'welcome' && <Welcome navigate={navigate} />}{page === 'desk' && <Desk navigate={navigate} />}{page === 'projects' && <Projects navigate={navigate} />}{page === 'aiLab' && <AiLab navigate={navigate} />}{page === 'about' && <About navigate={navigate} />}{page === 'contact' && <Contact navigate={navigate} />}</main></Html>; }
+export default function Screens({ isOpen, isPoweredOn, isFinishedBooting, bootScreenRef, linkedInScreenRef, htmlPosition, htmlRotation, distanceFactor }) { return <>{isOpen && isPoweredOn && !isFinishedBooting && <Boot refName={bootScreenRef} distanceFactor={distanceFactor} htmlPosition={htmlPosition} htmlRotation={htmlRotation} />}<Workstation refName={linkedInScreenRef} distanceFactor={distanceFactor} htmlPosition={htmlPosition} htmlRotation={htmlRotation} /></>; }

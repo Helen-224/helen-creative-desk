@@ -2,9 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Html } from '@react-three/drei';
 import gsap from 'gsap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'; // Importing the icons
-
-import { faEnvelope, faCode } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 
 export default function SocialMediaPanel({
   linkedInHtmlRef,
@@ -126,7 +124,7 @@ export default function SocialMediaPanel({
         className="social-media-panel-container"
       >
         <div className="social-media-panel">
-          <div
+          <button type="button" aria-label="Show Helen's introduction"
             ref={linkedInLinkRef}
             className={
               'social-media-link ' +
@@ -136,9 +134,9 @@ export default function SocialMediaPanel({
               switchPages('linkedIn');
             }}
           >
-            <FontAwesomeIcon icon={faLinkedin} />
-          </div>
-          <div
+            <FontAwesomeIcon icon={faHouse} />
+          </button>
+          <button type="button" aria-label="Show Helen's projects"
             ref={githubLinkRef}
             className={
               'social-media-link ' +
@@ -148,22 +146,8 @@ export default function SocialMediaPanel({
               switchPages('github');
             }}
           >
-            <FontAwesomeIcon icon={faGithub} />
-          </div>
-          <div className="social-media-link">
-            <a href="mailto:arthur.panazolo@acad.pucrs.br">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </a>
-          </div>
-          <div className="social-media-link">
-            <a
-              href="https://github.com/nothingnothings/r3f-portfolio/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faCode} />
-            </a>
-          </div>
+            <FontAwesomeIcon icon={faFolderOpen} />
+          </button>
         </div>
       </div>
     </Html>

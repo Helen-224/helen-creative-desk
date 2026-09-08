@@ -116,9 +116,9 @@ export default function LoadingScreen() {
     TE.init(screenRef.current);
 
     TE.wait(1000, false)
-      .then(() => TE.enterInput('portfolio.AppImage'))
+      .then(() => TE.enterInput('helen-creative-desk.AppImage'))
       .then(() => TE.enterCommand())
-      .then(() => TE.enterResponse('Loading Portfolio...'))
+      .then(() => TE.enterResponse('HELEN CREATIVE DESK'))
       .then(() => TE.wait(0))
       .then(() => TE.enterResponse(''))
       .then(() => TE.wait(800))
@@ -128,13 +128,13 @@ export default function LoadingScreen() {
       .then(() => TE.wait(300))
       .then(() => TE.enterResponse('- Loading Sounds...'))
       .then(() => TE.wait(300))
-      .then(() => TE.enterResponse('- Loading LinkedIn Profile...'))
+      .then(() => TE.enterResponse('AI × PRODUCT × DESIGN × CODE'))
       .then(() => TE.wait(300))
-      .then(() => TE.enterResponse('- Loading Github Profile...'))
+      .then(() => TE.enterResponse('- Loading Product Portfolio...'))
       .then(() => TE.wait(300))
       .then(() =>
         TE.enterResponse(
-          '- Putting out fire and smoke coming out of the notebook...'
+          '- Preparing Helen Creative Desk...'
         )
           .then(() => TE.wait(0))
           .then(() => TE.enterResponse(''))

@@ -16,7 +16,6 @@ import Screens from './Notebook/Screens/Screens';
 import HingeButtons from './UI/Buttons/HingeButtons';
 import PowerButtons from './UI/Buttons/PowerButtons';
 import RectLight from './Lights/RectLight';
-import SocialMediaPanel from './UI/SocialMediaPanel/SocialMediaPanel';
 import AboutMe from './UI/FauxPages/Pages/AboutMe';
 import Skills from './UI/FauxPages/Pages/Skills';
 
@@ -212,7 +211,7 @@ export default function Room(props) {
 
     setTimeout(() => {
       turnComputerFansOff();
-    }, 7000);
+    }, 3000);
   };
 
   const turnComputerFansOff = () => {
@@ -366,7 +365,6 @@ export default function Room(props) {
           <Skills {...skillsPageParameters} />
         </Center>
       </PresControls>
-      <SocialMediaPanel {...socialMediaPanelParameters} />
     </>
   );
 }

@@ -24,7 +24,7 @@ body,
 }
 
 .background {
-  background-image: url('/images/mesh-190.png');
+  background: linear-gradient(135deg, #f6f8fa 0%, #e9eef4 58%, #f5f3ed 100%);
 }
 
 canvas {
@@ -72,7 +72,7 @@ canvas {
     left: 0;
     top: 0;
     color: #8ae234;
-    content: 'arthur@panazolo:~$ ';
+    content: 'helen@creative-desk:~$ ';
   }
 }
 
@@ -149,6 +149,36 @@ canvas {
   border-radius: 20px;
   background: transparent;
 }
+
+.productOsScreen { border-radius: 20px; overflow: hidden; }
+.product-os-shell { width: 2075px; height: 1300px; color: #f8f5ed; font-family: 'Titillium Web', sans-serif; background: #1d201e; }
+.product-os { box-sizing: border-box; width: 100%; height: 100%; padding: 104px 132px; position: relative; }
+.os-eyebrow { margin: 0; color: #dfc960; font-size: 25px; letter-spacing: .16em; text-transform: uppercase; }
+.welcome-view { display: flex; flex-direction: column; justify-content: space-between; }
+.welcome-copy { margin: auto 0; }
+.welcome-copy h1 { max-width: 1400px; margin: 0 0 20px; font-size: 112px; font-weight: 400; letter-spacing: -.035em; line-height: .96; }
+.os-role { margin: 0; font-size: 42px; letter-spacing: .06em; }
+.os-statement { margin: 92px 0 10px; color: #dfc960; font-size: 56px; line-height: 1.05; }
+.os-tagline { margin: 0; color: #c7c7bf; font-size: 29px; letter-spacing: .08em; }
+.product-os button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
+.os-primary-action, .os-text-action { width: fit-content; min-height: 68px; padding: 0 0 8px; border-bottom: 2px solid #dfc960 !important; color: #f8f5ed; font-size: 30px; letter-spacing: .08em; transition: color .18s ease, border-color .18s ease; }
+.os-primary-action:hover, .os-primary-action:focus-visible, .os-text-action:hover, .os-text-action:focus-visible { color: #dfc960; border-color: #f8f5ed !important; }
+.os-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #545650; padding-bottom: 32px; }
+.os-header > p:last-child { margin: 0; color: #b2b2aa; font-size: 25px; }
+.desk-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 120px; margin-top: 92px; }
+.desk-index button { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 22px; min-height: 160px; border-bottom: 1px solid #545650 !important; color: #f8f5ed; font-size: 47px; text-align: left; transition: color .18s ease, padding-left .18s ease; }
+.desk-index button:hover, .desk-index button:focus-visible { padding-left: 12px; color: #dfc960; }
+.desk-index button span { color: #dfc960; font-size: 24px; letter-spacing: .1em; }.desk-index button b { font-size: 26px; font-weight: 400; }
+.section-view { overflow-y: auto; }.os-section-header { display: flex; flex-direction: column; gap: 58px; }.os-section-header h1 { margin: 12px 0 0; font-size: 76px; font-weight: 400; letter-spacing: -.03em; }.os-back { width: fit-content; min-height: 48px; color: #c7c7bf; font-size: 24px; letter-spacing: .1em; }.os-back:hover, .os-back:focus-visible { color: #dfc960; }
+.projects-list { margin-top: 54px; }.os-project { padding: 38px 0; border-top: 1px solid #545650; }.os-project > p:first-child { margin: 0; color: #dfc960; font-size: 21px; letter-spacing: .13em; }.os-project h2 { margin: 12px 0 0; font-size: 55px; font-weight: 400; }.os-project h3 { margin: 2px 0 18px; color: #c7c7bf; font-size: 26px; font-weight: 400; }.os-project > span { color: #dfc960; font-size: 22px; }.os-body { max-width: 1150px; margin: 24px 0; font-size: 29px; line-height: 1.45; }.os-tags { display: flex; flex-wrap: wrap; gap: 12px; }.os-tags span { border: 1px solid #65675f; border-radius: 99px; padding: 7px 14px; color: #c7c7bf; font-size: 19px; }.os-text-action { min-height: 50px; margin-top: 30px; color: #dfc960; font-size: 22px; }
+.os-placeholder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 190px; }.os-placeholder-grid p { margin: 0; border-top: 1px solid #545650; padding-top: 24px; font-size: 38px; }.os-placeholder-grid span { display: block; margin-top: 28px; color: #a6a69f; font-size: 21px; }.os-prose { max-width: 1340px; margin-top: 132px; font-size: 38px; line-height: 1.45; }.os-prose p { margin: 0 0 38px; }.os-fact { display: flex; flex-direction: column; gap: 8px; margin-top: 100px; border-top: 1px solid #545650; padding-top: 25px; color: #dfc960; }.os-fact b { font-size: 28px; }.os-fact span { font-size: 24px; color: #c7c7bf; }.os-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 220px; }.os-facts div { border-top: 1px solid #545650; padding-top: 24px; }.os-facts span { display: block; color: #c7c7bf; font-size: 24px; }.os-facts b { display: block; margin-top: 14px; color: #dfc960; font-size: 35px; font-weight: 400; }.os-empty { margin-top: 230px; }.os-empty h1 { margin: 0; color: #dfc960; font-size: 86px; font-weight: 400; line-height: 1; }.os-empty p { color: #c7c7bf; font-size: 26px; }.project-notice { position: absolute; right: 70px; bottom: 65px; display: flex; align-items: center; gap: 40px; border: 1px solid #696b63; background: #272a27; padding: 22px 26px; color: #f8f5ed; font-size: 23px; }.project-notice button { color: #dfc960; font-size: 38px; line-height: 1; }
+@media (prefers-reduced-motion: reduce) { .product-os *, .product-os *::before, .product-os *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+/* HELEN CREATIVE DESK — White Digital Workstation */
+.productOsScreen { border-radius: 20px; overflow: hidden; }
+.workstation-shell { width: 2075px; height: 1300px; overflow: hidden; background: #f5f8fa; color: #101923; font-family: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif; }
+.workstation { box-sizing: border-box; width: 100%; height: 100%; padding: 92px 126px; position: relative; }.ws-system { margin: 0; color: #527ba3; font-family: 'Titillium Web', sans-serif; font-size: 22px; letter-spacing: .16em; }.welcome-cover { display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(118deg, #fbfcfd 0%, #eef4fa 72%, #edf0ef 100%); }.ws-name { margin: 24px 0 0; font-size: 32px; letter-spacing: .04em; }.welcome-main { max-width: 1470px; margin: auto 0; }.ws-tagline { margin: 0 0 40px; color: #2f76b6; font-size: 34px; }.welcome-main h1 { max-width: 1320px; margin: 0; font-size: 98px; font-weight: 600; letter-spacing: -.055em; line-height: 1.16; }.ws-note { margin: 52px 0 24px; font-size: 36px; line-height: 1.45; }.ws-english { margin: 0; color: #6d7d8b; font-family: 'Titillium Web', sans-serif; font-size: 22px; letter-spacing: .1em; }.workstation button { cursor: pointer; font-family: inherit; touch-action: manipulation; }.enter-desk { width: fit-content; min-height: 62px; color: #12304c; border-bottom: 2px solid #2f76b6 !important; font-size: 30px; transition: color .18s ease, padding-left .18s ease; }.enter-desk:hover, .enter-desk:focus-visible { padding-left: 12px; color: #2f76b6; }.desk-home header { display: flex; justify-content: space-between; border-bottom: 1px solid #b9c5cf; padding-bottom: 30px; }.desk-home header > p:last-child { margin: 0; color: #4a5864; font-family: 'Titillium Web', sans-serif; font-size: 23px; letter-spacing: .1em; }.desk-directory { margin-top: 82px; }.desk-directory button { display: grid; grid-template-columns: 96px 1fr auto; align-items: center; width: 100%; min-height: 188px; border-bottom: 1px solid #b9c5cf !important; color: #101923; text-align: left; transition: padding-left .18s ease, color .18s ease; }.desk-directory button:hover, .desk-directory button:focus-visible { padding-left: 16px; color: #2f76b6; }.desk-directory button > span { color: #2f76b6; font-family: monospace; font-size: 25px; }.desk-directory b, .desk-directory strong, .desk-directory small { display: block; }.desk-directory b { font-family: 'Titillium Web', sans-serif; font-size: 31px; letter-spacing: .1em; }.desk-directory strong { margin: 8px 0; font-size: 44px; font-weight: 500; }.desk-directory small { color: #71808c; font-family: 'Titillium Web', sans-serif; font-size: 21px; }.desk-directory i { color: #2f76b6; font-size: 34px; font-style: normal; }.desk-back { min-height: 48px; color: #527ba3; font-size: 23px; }.desk-back:hover, .desk-back:focus-visible { color: #101923; }.page-heading { margin-top: 60px; }.page-heading h1 { margin: 16px 0 0; font-size: 72px; font-weight: 600; letter-spacing: -.05em; }.page-heading > span { color: #71808c; font-family: 'Titillium Web', sans-serif; font-size: 25px; }.scroll-view { overflow-y: auto; }.project-stack { margin-top: 48px; }.project-featured, .project-secondary { border-top: 1px solid #b9c5cf; padding: 35px 0 54px; }.project-featured { background: linear-gradient(90deg, rgba(213, 231, 247, .55), transparent); padding-left: 34px; }.project-preview { float: right; width: 420px; height: 220px; margin-left: 70px; display: grid; place-items: center; border: 1px solid #8fb5d5; color: #527ba3; font-family: 'Titillium Web', sans-serif; font-size: 18px; letter-spacing: .15em; background: linear-gradient(135deg, #e3f0fa, #f8fbfd); }.project-featured h2, .project-secondary h2 { margin: 12px 0 0; font-size: 58px; font-weight: 600; }.project-featured h3, .project-secondary h3 { margin: 2px 0 16px; color: #586b7a; font-family: 'Titillium Web', sans-serif; font-size: 28px; font-weight: 400; }.project-type { color: #2f76b6; font-size: 24px; }.project-description { max-width: 1100px; font-size: 28px; line-height: 1.45; }.project-tags { display: flex; flex-wrap: wrap; gap: 12px; }.project-tags span { border: 1px solid #aebdca; padding: 7px 14px; color: #40505d; font-size: 19px; }.project-link, .project-status { display: inline-block; min-height: 42px; margin-top: 28px; color: #2f76b6; font-size: 23px; text-decoration: none; }.project-link { border-bottom: 1px solid #2f76b6; }.project-status { color: #71808c; }.lab-directory { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 180px; }.lab-directory div, .about-facts div { border-top: 1px solid #b9c5cf; padding-top: 22px; }.lab-directory span, .lab-directory b, .lab-directory strong, .lab-directory small { display: block; }.lab-directory span { color: #2f76b6; font-family: monospace; font-size: 22px; }.lab-directory b { margin-top: 40px; font-family: 'Titillium Web', sans-serif; font-size: 30px; letter-spacing: .08em; }.lab-directory strong { margin-top: 14px; font-size: 33px; }.lab-directory small { margin-top: 36px; color: #71808c; font-size: 21px; }.about-copy { max-width: 1350px; margin-top: 92px; font-size: 37px; line-height: 1.45; }.about-copy p { margin: 0 0 38px; }.about-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 90px; }.about-facts span, .about-facts b { display: block; }.about-facts span { color: #527ba3; font-size: 22px; }.about-facts b { margin-top: 14px; font-size: 27px; font-weight: 500; }.contact-copy { margin-top: 240px; font-size: 53px; line-height: 1.25; }.contact-copy p { margin: 0; }.contact-copy span { display: block; margin-top: 62px; color: #71808c; font-size: 24px; }.workstation button:focus-visible, .workstation a:focus-visible { outline: 3px solid #2f76b6 !important; outline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) { .workstation *, .workstation *::before, .workstation *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
 
 .githubHtmlScreen {
   cursor: pointer;
@@ -254,6 +284,8 @@ canvas {
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
+
+button.social-media-link { padding: 0; border: 0; background: transparent; color: inherit; }
 
 .social-media-link a {
   color: rgba(0, 25, 51);

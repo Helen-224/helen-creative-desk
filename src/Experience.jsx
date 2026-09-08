@@ -10,7 +10,6 @@ import useNotebook from './store/useNotebook';
 // * COMPONENTS
 import Env from './Components/Environment/Env';
 import Room from './Components/Room';
-import Captions from './Components/UI/Captions/Captions';
 
 // Lazy import WordCloudComponent to avoid loading it on mobile devices:
 const WordCloudComponent = lazy(
@@ -26,7 +25,7 @@ export default function Experience() {
       navigator.userAgent
     );
 
-  const { camera, viewport } = useThree();
+  const { camera, gl } = useThree();
 
   const { roomPage } = useNotebook((state) => state);
 
@@ -66,6 +65,17 @@ export default function Experience() {
     roomGroupRef.current.visible = true;
   }, [window.innerWidth, window.innerHeight]);
 
+  // Mouse wheel controls the reading distance; the notebook's original drag rotation remains intact.
+  useEffect(() => {
+    const zoomWithWheel = (event) => {
+      event.preventDefault();
+      camera.position.z = Math.min(9, Math.max(1.75, camera.position.z + event.deltaY * 0.002));
+    };
+    const canvas = gl.domElement;
+    canvas.addEventListener('wheel', zoomWithWheel, { passive: false });
+    return () => canvas.removeEventListener('wheel', zoomWithWheel);
+  }, [camera, gl]);
+
   // * ROOM PROPS
   const roomProps = {
     isNewVisit,
@@ -79,16 +89,6 @@ export default function Experience() {
     powerOff,
     finishBooting,
     switchPage,
-  };
-
-  // * CAPTIONS PROPS
-  const captionsProps = {
-    isNewVisit,
-    changeVisitStatus,
-    isOpen,
-    isPoweredOn,
-    isFinishedBooting,
-    loadedPage,
   };
 
   // * WORD CLOUD PROPS
@@ -120,7 +120,6 @@ export default function Experience() {
           <WordCloudComponent {...wordCloudComponentProps} />
         </group>
       </Center>
-      {roomPage === 'notebook' && <Captions {...captionsProps} />}
     </>
   );
 }
