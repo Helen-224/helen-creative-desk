@@ -25,6 +25,9 @@ import { useFloat } from '../hooks/useFloat';
 import useNotebook from '../store/useNotebook';
 import { useThree } from '@react-three/fiber';
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
+const notebookModelUrl = publicAsset('models/lenovo-notebook.glb');
+
 export default function Room(props) {
   // * ZUSTAND STORE
   const {
@@ -43,12 +46,12 @@ export default function Room(props) {
 
   // * GLTF MODEL
   const { nodes, materials, animations } = useGLTF(
-    '/models/lenovo-notebook.glb'
+    notebookModelUrl
   );
 
   // * NOTEBOOK SOUNDS:
-  const [fanAudio] = useState(() => new Audio('/sounds/fan.mp3'));
-  const [bootAudio] = useState(() => new Audio('/sounds/beep.wav'));
+  const [fanAudio] = useState(() => new Audio(publicAsset('sounds/fan.mp3')));
+  const [bootAudio] = useState(() => new Audio(publicAsset('sounds/beep.wav')));
 
   // * LENOVO NOTEBOOK REFS
   const group = useRef();
@@ -369,4 +372,4 @@ export default function Room(props) {
   );
 }
 
-useGLTF.preload('/models/lenovo-notebook.glb');
+useGLTF.preload(notebookModelUrl);
