@@ -3,6 +3,7 @@ import { lazy, useEffect, useRef } from 'react';
 import { useThree } from '@react-three/fiber';
 import { Center, useBounds, Html } from '@react-three/drei';
 import { useControls } from 'leva';
+import gsap from 'gsap';
 
 // * ZUSTAND STORE
 import useNotebook from './store/useNotebook';
@@ -54,11 +55,12 @@ export default function Experience() {
   // * BOUNDS-RELATED LOGIC:
   const bounds = useBounds();
   const roomGroupRef = useRef();
+  const readingCameraTweenRef = useRef();
 
   useEffect(() => {
     // Calculate scene bounds
     camera.position.set(0, 1, 3.5);
-    roomGroupRef.current.position.set(0, 0.35, 0);
+    roomGroupRef.current.position.set(0, 0.47, 0);
 
     bounds.refresh(camera).clip().fit();
 
@@ -75,6 +77,23 @@ export default function Experience() {
     canvas.addEventListener('wheel', zoomWithWheel, { passive: false });
     return () => canvas.removeEventListener('wheel', zoomWithWheel);
   }, [camera, gl]);
+
+  // Bring the Welcome screen to a readable distance after the existing lid-open action.
+  // This changes only the camera position, preserving the project's FOV and Bounds setup.
+  useEffect(() => {
+    readingCameraTweenRef.current?.kill();
+
+    if (!isOpen) return undefined;
+
+    readingCameraTweenRef.current = gsap.to(camera.position, {
+      z: 1.8,
+      duration: 0.88,
+      ease: 'power3.out',
+      overwrite: 'auto',
+    });
+
+    return () => readingCameraTweenRef.current?.kill();
+  }, [isOpen, camera]);
 
   // * ROOM PROPS
   const roomProps = {
@@ -115,7 +134,7 @@ export default function Experience() {
     <>
       <Env />
       <Center>
-        <group ref={roomGroupRef} visible={false}>
+        <group ref={roomGroupRef} visible={false} scale={[1.18, 1.18, 1.18]}>
           <Room {...roomProps} />
           <WordCloudComponent {...wordCloudComponentProps} />
         </group>

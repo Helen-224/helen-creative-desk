@@ -6,9 +6,13 @@ import { Leva } from 'leva';
 
 // * COMPONENTS
 import Experience from '../../Experience';
+import HeroOverlay from '../HeroOverlay/HeroOverlay';
 import { interpolateFunc, backgroundSetter } from '../../Utils/utils';
+import useNotebook from '../../store/useNotebook';
 
 const ExperienceWrapper = () => {
+  const isOpen = useNotebook((state) => state.isOpen);
+
   useEffect(() => {
     backgroundSetter();
   }, []);
@@ -35,6 +39,7 @@ const ExperienceWrapper = () => {
           position={[0, -0.9, 0]}
         />
       </Canvas>
+      <HeroOverlay isOpen={isOpen} />
     </>
   );
 };

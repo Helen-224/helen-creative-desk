@@ -2,10 +2,10 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   root: 'src/',
   publicDir: '../public/',
-  base: '/',
+  base: command === 'build' ? '/helen-creative-desk/' : '/',
   plugins: [
     react(), // React support
     nodePolyfills(), // Fix Crypto warnings
@@ -19,4 +19,4 @@ export default defineConfig({
     emptyOutDir: true, // Empty the folder first
     sourcemap: true, // Add sourcemap
   },
-});
+}));
